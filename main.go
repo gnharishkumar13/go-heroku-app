@@ -14,5 +14,8 @@ func main() {
 		w.Write([]byte("Server is up and running"))
 	})
 	port := os.Getenv("PORT")
+	if port == "" {
+		port = "3000"
+	}
 	log.Fatal(http.ListenAndServe("0.0.0.0:"+port, nil))
 }
